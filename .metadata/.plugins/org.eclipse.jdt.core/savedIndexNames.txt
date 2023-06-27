@@ -1,0 +1,2 @@
+INDEX VERSION 1.132+C:\Users\Onkar\OneDrive\Desktop\Blog-Website-SpringBoot-Angular\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
