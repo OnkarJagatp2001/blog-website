@@ -39,7 +39,7 @@ public class BlogController {
 	}
 	@GetMapping("/getblog")
 	public ResponseEntity<List<Blog>> getblog()
-	{
+	{	System.out.println("in getblog");
 		List<Blog>blogList = new ArrayList<>();
 		blogRepository.findAll().forEach(blogList::add);
 		
