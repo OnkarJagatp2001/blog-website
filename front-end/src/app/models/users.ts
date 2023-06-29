@@ -7,3 +7,7 @@ export class Users{
     userProf!: string;
     userAge!: number;
 }
+export class login{
+    userName!:String ;
+    userPass!: String;
+}
