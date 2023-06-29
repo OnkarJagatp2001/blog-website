@@ -1,1 +1,50 @@
-<p>login works!</p>
+
+<div class="container">
+    <h2>Login</h2>
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div class="form-group12">
+            <label for="username">userPass:</label>
+            <input type="text"
+            id="username"
+            placeholder="Enter your username" 
+            ngModel
+            name="username" 
+            ngModel
+             
+            required>
+            <!-- <span class="help-block"
+               *ngIf="username.touched">Please enter username</span> -->
+        </div>
+        <br>
+        <div class="form-group12">
+            <label for="password">Password:</label>
+            <input type="password"
+            id="password"
+            placeholder="Enter your password" 
+            ngModel
+            name="password"
+            ngModel
+            required>
+            <!-- <span class="help-block"
+               *ngIf="password.touched">Please enter password</span> -->
+        </div>
+        <br>
+        <div class="inline_block">
+            <div class="inline_block" class="form-group12">
+                <!-- <div *ngIf="password.invalid && password.touched"> -->
+                    <!-- <div *ngIf="password.hasError('required')">Password is required.</div> -->
+                    <!-- <div *ngIf="password.passwordValidator('invalidPassword')">Invalid password.</div> -->
+                    <!-- <div *ngIf="myForm.get('password')?.hasError('invalidPassword')">Invalid password.</div> -->
+                    <!-- <div *ngIf="f.passwordValidator.invalidPassword">Invalid password.</div> -->
+                  <!-- </div> -->
+                <button type="submit"
+                [disabled]="f.invalid">Login</button>
+                <!-- <p *ngIf="!passwordValidator()">All Fieds Are passwordValidator</p> -->
+            </div>
+            <div class="in">
+                <p id="signup1">Don't have an account? &nbsp;</p>
+                <a href="register.html"><p id="signuplink">Sign up</p></a>
+            </div>
+        </div>
+    </form>
+</div>

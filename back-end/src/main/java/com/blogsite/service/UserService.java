@@ -15,19 +15,6 @@ public class UserService {
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
+
     
-    public User findUserByUserName(String userName) {
-        return userRepository.findByuserName(userName);
-//        return user;
-    }
-    
-    public boolean isUsernameAlreadyExists(String userName) {
-        User user = userRepository.findByuserName(userName);
-        if(user.getUserName() != null)
-        {
-        	return false;
-        }
-//        return user != null;
-        return true;
-    }
 }
