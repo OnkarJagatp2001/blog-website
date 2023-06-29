@@ -39,29 +39,28 @@ public class UserController {
 	@Autowired
 	UserService userservice;
 	
-	public String getuname(String usern)
+	public boolean getuname(String usern)
 	{
-		String query = "select user_name from users where user_name = :user_name";
-		  Map<String,Object>par = new HashMap<>();
-		  par.put("user_name",usern);
-		Map<String, Object> params = new HashMap<String, Object>();
-		return namedParameterJdbcTemplate.queryForObject(query, par, String.class);	
+		String query = "select count(*) from users where user_name = ?";
+		int c = jdbcTemplate.queryForObject(query, Integer.class, usern);
+		return c > 0;
 	}
 
 	@PostMapping("/users")
 	public boolean createNewUser(@RequestBody User user ) {
+			if(getuname(user.getUserName()) == true)
+			{
+				return false;
+			}
+			
 			userRepository.save(user);
 			return true;
 	}
 	
-	@PostMapping("/check-user")
+	@PostMapping("/users/check")
 	public boolean checkNewUser(@RequestBody User user ) {
-		if(getuname(user.getUserName()) != null)
-		{
-			return false;
-		}
-		return true;
-	}
+		return !getuname(user.getUserName());
+}
 	
 	@GetMapping("/sp/{userId}")
 	public String gt(@PathVariable Long userId) {		
