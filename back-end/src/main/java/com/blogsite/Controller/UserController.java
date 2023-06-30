@@ -81,7 +81,7 @@ public class UserController {
 //			return true;
 //		else 
 //			return false;
-		System.out.println(user.getUserName());
+//		System.out.println(user.getUserName());
 		String query = "select user_pass from users where user_name = :uname ";
 		Map<String, Object>params=new HashMap<>();
 		params.put("uname", user.getUserName());

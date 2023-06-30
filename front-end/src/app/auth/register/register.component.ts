@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 // import { Users } from 'src/app/models/users';
 import { UsersService } from 'src/app/_services/users.service';
 import { Users } from 'src/app/models/Users';
@@ -15,7 +16,7 @@ export class RegisterComponent {
 
   userData: Users = new Users();
 
-  constructor(private usersService: UsersService) {}
+  constructor(private usersService: UsersService,private router: Router) {}
 
   x:any=undefined;
   saveUsers() {
@@ -38,12 +39,16 @@ export class RegisterComponent {
     {
       this.saveUsers();
       this.s=1;
-
+      this.loginroute();
     }
       
     });
   }
 
+  loginroute()
+  {
+    this.router.navigate(['login']);
+  }
   s:number = 0;
 
 
