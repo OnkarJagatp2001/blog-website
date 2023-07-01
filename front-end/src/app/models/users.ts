@@ -6,8 +6,9 @@ export class Users{
     userPass!: string;
     userProf!: string;
     userAge!: number;
+    userId!:number;
 }
 export class login{
-    userName!:String ;
-    userPass!: String;
+    userName!:string ;
+    userPass!: string;
 }

@@ -1,38 +1,27 @@
 package com.blogsite.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+public class UserSession {
 
-@Entity
-@Table(name = "users")
-public class User {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int userId;
 	
-	@Column(name = "name")
 	private String name;
 	
-	@Column(name = "userName")
+
 	private String userName;
 
-	@Column(name = "userEmail")
+	
 	private String userEmail;
 	
-	@Column(name = "userPass")
+	
 	private String userPass;
 	
-	@Column(name = "userProf")
+	
 	private String userProf;
 	
-	@Column(name = "userAge")
+	
 	private int userAge;
 
-	@Column(name = "gender")
+	
 	private String gender;
 	
 	public String getName() {
@@ -96,17 +85,28 @@ public class User {
     public void setGender(String gender) {
         this.gender = gender;
     }
+    
+    public int  getUserId() {
+        return userId;
+    }
 
-    public User(String name, String userName, String userEmail, String userPass, String userProf, int userAge, String gender) {
+    public void setgetUserId(int userId) {
+        this.userId = userId;
+    }
+    
+    
+    public UserSession(String name, String userName, String userEmail, int userId, String userProf, int userAge, String gender) {
         this.name = name;
         this.userName = userName;
         this.userEmail = userEmail;
-        this.userPass = userPass;
+        this.userId = userId;
         this.userProf = userProf;
         this.userAge = userAge;
         this.gender = gender;
     }
 
-    
-    public User() {}
+	public UserSession() {
+		super();
+	}    
+	
 }

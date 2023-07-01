@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.blogsite.Repository.UserRepository;
-import com.blogsite.model.Blog;
 import com.blogsite.model.User;
+import com.blogsite.model.UserSession;
 import com.blogsite.service.UserService;
 
 
@@ -86,7 +86,6 @@ public class UserController {
 		Map<String, Object>params=new HashMap<>();
 		params.put("uname", user.getUserName());
 		
-//		String s = jdbcTemplate.queryForObject(query, String.class, user.getUserName());
 		String s = "";
 		try {
 			s = namedParameterJdbcTemplate.queryForObject(query, params, String.class);
@@ -110,11 +109,37 @@ public class UserController {
 }
 	
 	@GetMapping("/sp/{userId}")
-	public String gt(@PathVariable Long userId) {		
+	public String gt(@PathVariable int userId) {		
 		User users = userRepository.findById(userId).orElseThrow(null);
 		
 		return users.getUserName();
 		
 	}
+	
+	@GetMapping("/users/{userName}")
+	public UserSession getdata(@PathVariable String userName)
+	{
+		String query = "select * from users where user_name = :userName";
+		Map<String, Object>params=new HashMap<>();
+		params.put("userName", userName);
+		
+		   List<Map<String, Object>> resultList = namedParameterJdbcTemplate.queryForList(query, params);
+		   
+		   UserSession u = null;
+	        for (Map<String, Object> result : resultList) {
+	            int user_Id = (int) result.get("user_id");
+	            String username = (String) result.get("user_name");
+	            String userEmail = (String) result.get("user_email");
+	            String userProf = (String) result.get("user_prof");
+	            int userAge = (int) result.get("user_age");
+	            String gender = (String) result.get("gender");
+	            String name = (String) result.get("name"); 
+	            System.out.println(user_Id);
+	            u =	new UserSession(name, username, userEmail, user_Id, userProf, userAge, gender);
+	        }
+	        System.out.println(u.getUserName());
+		return u;
+	}
+	
 	
 }

@@ -1,7 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { UsersService } from 'src/app/_services/users.service';
-import { login } from 'src/app/models/Users';
+import { login, Users } from 'src/app/models/Users';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,14 +13,19 @@ export class LoginComponent {
   @ViewChild('f') form!: NgForm;
 
   logi: login = new login();
+
   // form = new FormGroup({
   //   password: new FormControl('', [Validators.required, this.passwordValidator])
   // });
+
+  userData : Users = new Users();
   onSubmit(form: NgForm) {
     if (form.invalid) {
       alert('Invalid');
     }
+
     // alert("submitted");
+
     else{
     console.log(form);
     this.logi.userName = this.form.value.username;
@@ -29,14 +35,17 @@ export class LoginComponent {
     this.checklogin();
     }
   }
-  constructor(private usersService: UsersService) {}
+  constructor(private usersService: UsersService,private router: Router) {}
 
   x:any=undefined;
   checklogin() {
     this.usersService.checkuser(this.logi).subscribe((data: boolean) => { this.x=data;
       console.log(this.x);
       if(this.x){
+        sessionStorage.setItem('username', this.logi.userName);
         alert("logged in");
+        this.getudata();
+
       }
       else{
         alert("UserName Does not exist");
@@ -44,6 +53,51 @@ export class LoginComponent {
       
     });
   }
+
+
+  vl:number=10;
+  i:string = "";
+  v:any=undefined;
+  forSession : Users = new Users();
+  getudata(){
+    let un = sessionStorage.getItem('username');
+    this.usersService.udata(un).subscribe((data)=>{this.v=data;
+    console.log(this.v);
+    this.userData = this.v;
+    this.i=this.userData.userId.toString();
+    sessionStorage.setItem('userid',this.i );
+    sessionStorage.setItem('name',this.userData.name );
+    sessionStorage.setItem('email',this.userData.userEmail );
+    sessionStorage.setItem('gender',this.userData.gender );
+    sessionStorage.setItem('proff',this.userData.userProf );
+    this.i = this.userData.userAge.toString();
+    sessionStorage.setItem('age',this.i );
+    });
+  }
+
+//Check is user logged in or not
+  isUserLoggedIn() {
+    console.log(sessionStorage.getItem('username'));
+    sessionStorage.getItem('userid');
+    
+  }
+
+    // to get id as number
+  getId()
+  {
+    let vl = sessionStorage.getItem('userid')
+    let id=sessionStorage.getItem('username');
+    let vs = parseInt(vl || '')
+    
+    if(Number.isNaN(vs))
+    return false
+    
+    else
+    return vs;
+    
+
+  }
+
   // passwordValidator(control: FormControl): { [key: string]: boolean } | null {
   //   const password = control.value;
   //   const hasUppercase = /[A-Z]/.test(password);
