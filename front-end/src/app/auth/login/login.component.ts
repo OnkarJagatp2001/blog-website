@@ -36,15 +36,17 @@ export class LoginComponent {
     }
   }
   constructor(private usersService: UsersService,private router: Router) {}
-
+  isLoggedIn:boolean=false;
   x:any=undefined;
   checklogin() {
     this.usersService.checkuser(this.logi).subscribe((data: boolean) => { this.x=data;
       console.log(this.x);
       if(this.x){
         sessionStorage.setItem('username', this.logi.userName);
-        alert("logged in");
+        // alert("logged in");
         this.getudata();
+        this.isLoggedIn=this.isUserLoggedIn();
+        this.router.navigate(['/home']); 
 
       }
       else{
@@ -76,11 +78,22 @@ export class LoginComponent {
   }
 
 //Check is user logged in or not
-  isUserLoggedIn() {
-    console.log(sessionStorage.getItem('username'));
-    sessionStorage.getItem('userid');
+  // isUserLoggedIn() {
+  //   console.log(sessionStorage.getItem('username'));
+  //   sessionStorage.getItem('userid');
     
+  // }
+  isUserLoggedIn()
+  {
+    let vl = sessionStorage.getItem('userid')
+    let vs = parseInt(vl || '')
+    
+    if(Number.isNaN(vs))
+    return false;
+    else
+    return true;
   }
+ 
 
     // to get id as number
   getId()
