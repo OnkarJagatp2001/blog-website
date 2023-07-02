@@ -42,4 +42,9 @@ export class UsersService {
     
     return this.httpClient.get<blog[]>(`${this.blogURL}/${vs}`);
   }
+
+  getByTags(tag:string): Observable<  blog[]>
+  {
+    return this.httpClient.get<blog[]>(`${this.blogURL}/${tag}`);
+  }
 }

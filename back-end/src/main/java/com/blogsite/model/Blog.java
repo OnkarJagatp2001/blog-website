@@ -14,8 +14,9 @@ public class Blog {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int blog_id;   //primary key
 	private int user_id;
+	@Column(length = 1000)
 	private String blog_title;
-	@Column(length = 2000)
+	@Column(length = 10000)
 	private String blog_text;
 	private String tags;
 	private int views;
