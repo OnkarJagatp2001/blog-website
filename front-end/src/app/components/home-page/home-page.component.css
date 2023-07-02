@@ -1,0 +1,19 @@
+.navbar {
+    background-color: #7ab6e7; /* Set the desired background color for the navbar */
+  }
+  
+  .text-danger {
+    color: red; 
+  }
+  
+  .text-success {
+    color: green; 
+  }
+  
+  .text-warning {
+    color: green; 
+  }
+  .text-align{
+    margin-left: 5%;
+    display: flex;
+  }

@@ -37,7 +37,7 @@ export class LoginComponent {
     }
   }
   constructor(private usersService: UsersService,private router: Router) {}
-
+  isLoggedIn:boolean=false;
   x:any=undefined;
   checklogin() {
     this.usersService.checkuser(this.logi).subscribe((data: boolean) => { this.x=data;
@@ -46,10 +46,16 @@ export class LoginComponent {
         sessionStorage.setItem('username', this.logi.userName);
         // alert("logged in");
         this.getudata();
+<<<<<<< HEAD
         // console.log(sessionStorage.getItem('userid'));
         
         // this.router.navigate(['/home'])
         this.router.navigate(['/profile'])
+=======
+        this.isLoggedIn=this.isUserLoggedIn();
+        this.router.navigate(['/home']); 
+
+>>>>>>> bb212b775f7a376a31a80e6c7a82fc16480c8509
       }
       else{
         alert("UserName Does not exist");
@@ -84,8 +90,24 @@ export class LoginComponent {
   // isUserLoggedIn() {
   //   console.log(sessionStorage.getItem('username'));
   //   sessionStorage.getItem('userid');
+<<<<<<< HEAD
   
   // }
+=======
+    
+  // }
+  isUserLoggedIn()
+  {
+    let vl = sessionStorage.getItem('userid')
+    let vs = parseInt(vl || '')
+    
+    if(Number.isNaN(vs))
+    return false;
+    else
+    return true;
+  }
+ 
+>>>>>>> bb212b775f7a376a31a80e6c7a82fc16480c8509
 
     // to get id as number
   getId()
