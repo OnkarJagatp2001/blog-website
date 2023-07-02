@@ -8,6 +8,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ProfileComponent } from './profile/profile.component';
     RegisterComponent,
     LoginComponent,
     ProfileComponent,
-    HomePageComponent
+    HomePageComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

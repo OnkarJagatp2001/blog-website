@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { UsersService } from 'src/app/_services/users.service';
 import { AppComponent } from 'src/app/app.component';
-import { blog } from 'src/app/models/Users';
+import { blog } from 'src/app/models/users';
 
 @Component({
   selector: 'app-sidebar',

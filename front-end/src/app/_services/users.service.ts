@@ -11,7 +11,7 @@ export class UsersService {
 
   private baseURL = "http://localhost:8883/userapi/users";
   private LogURL = "http://localhost:8883/userapi/login";
-  private blogURL = "http://localhost:8883/Blogapi/getblog";
+  private blogURL = "http://localhost:8883/Blogapi/getblogbytag";
 
 
   constructor(private httpClient: HttpClient) { }
@@ -41,5 +41,9 @@ export class UsersService {
     let vs = parseInt(vl || '')
     
     return this.httpClient.get<blog[]>(`${this.blogURL}/${vs}`);
+  }
+  getByTags(tag:string): Observable<  blog[]>
+  {
+    return this.httpClient.get<blog[]>(`${this.blogURL}/${tag}`);
   }
 }
