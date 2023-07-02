@@ -33,6 +33,7 @@ export class LoginComponent {
 
     console.log(this.logi.userName);
     this.checklogin();
+    navigator
     }
   }
   constructor(private usersService: UsersService,private router: Router) {}
@@ -40,12 +41,15 @@ export class LoginComponent {
   x:any=undefined;
   checklogin() {
     this.usersService.checkuser(this.logi).subscribe((data: boolean) => { this.x=data;
-      console.log(this.x);
+      // console.log(this.x);
       if(this.x){
         sessionStorage.setItem('username', this.logi.userName);
-        alert("logged in");
+        // alert("logged in");
         this.getudata();
-
+        // console.log(sessionStorage.getItem('userid'));
+        
+        // this.router.navigate(['/home'])
+        this.router.navigate(['/profile'])
       }
       else{
         alert("UserName Does not exist");
@@ -55,14 +59,13 @@ export class LoginComponent {
   }
 
 
-  vl:number=10;
   i:string = "";
   v:any=undefined;
   forSession : Users = new Users();
   getudata(){
     let un = sessionStorage.getItem('username');
     this.usersService.udata(un).subscribe((data)=>{this.v=data;
-    console.log(this.v);
+    // console.log(this.v);
     this.userData = this.v;
     this.i=this.userData.userId.toString();
     sessionStorage.setItem('userid',this.i );
@@ -72,21 +75,24 @@ export class LoginComponent {
     sessionStorage.setItem('proff',this.userData.userProf );
     this.i = this.userData.userAge.toString();
     sessionStorage.setItem('age',this.i );
+    // console.log("in udata");
+    // console.log(sessionStorage.getItem('userid'));
     });
   }
 
 //Check is user logged in or not
-  isUserLoggedIn() {
-    console.log(sessionStorage.getItem('username'));
-    sessionStorage.getItem('userid');
-    
-  }
+  // isUserLoggedIn() {
+  //   console.log(sessionStorage.getItem('username'));
+  //   sessionStorage.getItem('userid');
+  
+  // }
 
     // to get id as number
   getId()
   {
     let vl = sessionStorage.getItem('userid')
-    let id=sessionStorage.getItem('username');
+    // console.log(vl);
+    
     let vs = parseInt(vl || '')
     
     if(Number.isNaN(vs))
@@ -94,8 +100,6 @@ export class LoginComponent {
     
     else
     return vs;
-    
-
   }
 
   // passwordValidator(control: FormControl): { [key: string]: boolean } | null {

@@ -12,3 +12,11 @@ export class login{
     userName!:string ;
     userPass!: string;
 }
+export class blog{
+    blog_id!:number;
+	blog_title!:string;
+	blog_text!:string;
+	tags!:string;
+	views!:number;
+	likes!:number;
+}

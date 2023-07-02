@@ -32,7 +32,7 @@ export class RegisterComponent {
 
   check() {
     this.usersService.checkuname(this.userData).subscribe((data: boolean) => { this.x=data;
-      console.log(this.x);
+      // console.log(this.x);
       if(!this.x)
       alert("UserName is Taken");
       else

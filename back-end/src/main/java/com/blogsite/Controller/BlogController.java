@@ -10,16 +10,20 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.blogsite.model.Blog;
+
 import com.blogsite.Repository.BlogRepository;
+import com.blogsite.model.Blog;
 
 
+
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/Blogapi")
 public class BlogController {
@@ -45,6 +49,8 @@ public class BlogController {
 		
 		return new ResponseEntity<List<Blog>>(blogList,HttpStatus.OK);
 	}
+
+	
 	@GetMapping("/getblog/{user_id}")
 	public List<Blog> getblog(@PathVariable int user_id)
 	{

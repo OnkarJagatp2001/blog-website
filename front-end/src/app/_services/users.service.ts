@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { LoginComponent } from '../auth/login/login.component';
-import { Users, login } from '../models/Users';
+import { Users, blog, login } from '../models/Users';
 
 @Injectable({
   providedIn: 'root'
@@ -34,12 +34,12 @@ export class UsersService {
   {
     return this.httpClient.get<object>(`${this.baseURL}/${uname}`);
   }
-  
-  
-  // getblog()
-  // {
-  //   LoginComponent lg = new LoginComponent();
-  //   let x=LoginComponent.getId();
-  //   return this.httpClient.get<object>(`${this.baseURL}/${}`);
-  // }
+
+  blogData() : Observable<  blog[]>
+  {  
+    let vl = sessionStorage.getItem('userid')
+    let vs = parseInt(vl || '')
+    
+    return this.httpClient.get<blog[]>(`${this.blogURL}/${vs}`);
+  }
 }
