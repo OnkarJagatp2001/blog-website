@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { UsersService } from 'src/app/_services/users.service';
-import { login, Users } from 'src/app/models/Users';
+import { login, Users } from 'src/app/models/users';
 import { Router } from '@angular/router';
 
 @Component({
@@ -23,11 +23,7 @@ export class LoginComponent {
     if (form.invalid) {
       alert('Invalid');
     }
-
-    // alert("submitted");
-
     else{
-    console.log(form);
     this.logi.userName = this.form.value.username;
     this.logi.userPass = this.form.value.password;
 
@@ -46,16 +42,8 @@ export class LoginComponent {
         sessionStorage.setItem('username', this.logi.userName);
         // alert("logged in");
         this.getudata();
-<<<<<<< HEAD
-        // console.log(sessionStorage.getItem('userid'));
-        
         // this.router.navigate(['/home'])
         this.router.navigate(['/profile'])
-=======
-        this.isLoggedIn=this.isUserLoggedIn();
-        this.router.navigate(['/home']); 
-
->>>>>>> bb212b775f7a376a31a80e6c7a82fc16480c8509
       }
       else{
         alert("UserName Does not exist");
@@ -90,24 +78,8 @@ export class LoginComponent {
   // isUserLoggedIn() {
   //   console.log(sessionStorage.getItem('username'));
   //   sessionStorage.getItem('userid');
-<<<<<<< HEAD
   
   // }
-=======
-    
-  // }
-  isUserLoggedIn()
-  {
-    let vl = sessionStorage.getItem('userid')
-    let vs = parseInt(vl || '')
-    
-    if(Number.isNaN(vs))
-    return false;
-    else
-    return true;
-  }
- 
->>>>>>> bb212b775f7a376a31a80e6c7a82fc16480c8509
 
     // to get id as number
   getId()

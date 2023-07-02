@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 // import { Users } from 'src/app/models/users';
 import { UsersService } from 'src/app/_services/users.service';
-import { Users } from 'src/app/models/Users';
+import { Users } from 'src/app/models/users';
 
 @Component({
   selector: 'app-register',
