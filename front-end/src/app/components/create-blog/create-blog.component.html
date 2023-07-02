@@ -1,0 +1,39 @@
+<div
+  class="container1"
+  style="
+    border: 1px solid black;
+    margin-top: 3%;
+    margin-bottom: 10%;
+    padding-top: 3%;
+  ">
+  <div class="input-group input-group-lg" style="width: 60%;">
+    <span class="input-group-text" id="inputGroup-sizing-lg">Blog Title</span>
+    <input
+      type="text"
+      [(ngModel)]="blog_title"
+      class="form-control"
+      aria-label="Sizing example input"
+      aria-describedby="inputGroup-sizing-lg"
+    />
+  </div>
+  <br />
+  <div class="container2">
+    <angular-editor
+      id="edi"
+      class="angular-editor-input"
+      [(ngModel)]="blog_text"
+      [config]="config"
+      (imageUpload)="uploadImage($event)"
+    >
+    </angular-editor>
+    <br>
+  </div>
+<div class="tagsin" style="margin-left: 17%;">
+    <label for="">Tags : </label>
+    <input style="margin-left: 2%;" type="text" value="Add Tags" [(ngModel)]="tag" required>
+</div>
+  <br>
+<div class="subbutton">
+    <button style="border-radius: 6px; height: 5%; width: 8%;" (click)="submitblog()">Submit</button> 
+</div>
+</div>
