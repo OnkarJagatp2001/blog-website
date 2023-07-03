@@ -14,7 +14,8 @@ const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path:'home',component:HomePageComponent},
   {path:'create-blog',component:CreateBlogComponent},
-  {path:'show-blog',component:ShowBlogComponent}
+  {path:'show-blog',component:ShowBlogComponent},
+  {path:'comments',component:CommentsComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

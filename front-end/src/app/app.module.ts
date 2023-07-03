@@ -12,6 +12,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CreateBlogComponent } from './components/create-blog/create-blog.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { ShowBlogComponent } from './components/show-blog/show-blog.component';
+import { CommentsComponent } from './components/comments/comments.component';
+import { CommentServiceService } from './_services/comment-service.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { ShowBlogComponent } from './components/show-blog/show-blog.component';
     HomePageComponent,
     CreateBlogComponent,
     SidebarComponent,
-    ShowBlogComponent
+    ShowBlogComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,

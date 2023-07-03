@@ -1,6 +1,5 @@
 package com.blogsite.model;
 
-import java.sql.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -24,9 +23,9 @@ public class Comments {
 	@Column(length=200)
 	private String comment;
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
-	private Date date;	
+	private String date;	
 	
-	public Comments(int user_id, int blog_id, String comment, Date date) {
+	public Comments(int user_id, int blog_id, String comment, String date) {
 		super();
 		this.user_id = user_id;
 		this.blog_id = blog_id;
@@ -39,11 +38,11 @@ public class Comments {
 	}
 	
 
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	
