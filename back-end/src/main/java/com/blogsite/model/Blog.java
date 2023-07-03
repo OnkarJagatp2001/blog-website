@@ -16,7 +16,7 @@ public class Blog {
 	private int user_id;
 	@Column(length = 1000)
 	private String blog_title;
-	@Column(length = 10000)
+	@Column(length = 10000000)
 	private String blog_text;
 	private String tags;
 	private int views;

@@ -41,6 +41,14 @@ public class BlogController {
 		blogRepository.save(blog);
 		return true;
 	}
+	
+	@GetMapping("/getblogbyid/{blog_id}")
+	public Blog getBbyid(@PathVariable int blog_id)
+	{
+		Blog blog = blogRepository.findById(blog_id).orElseThrow(null);
+		return blog;
+	}
+	
 	@GetMapping("/getblog")
 	public ResponseEntity<List<Blog>> getblog()
 	{	System.out.println("in getblog");
