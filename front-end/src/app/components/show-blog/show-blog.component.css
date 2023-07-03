@@ -1,0 +1,20 @@
+@import '/node_modules/font-awesome/css/font-awesome.css';
+
+
+.container1{
+    margin: 5% 20% 20% 20%;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+:host /deep/ angular-editor#edi .angular-editor-textarea{
+    border: none;
+    resize: none;
+}
+
+.data-title{
+    margin: 1%;
+    margin-top: 3%;
+}

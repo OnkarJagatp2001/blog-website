@@ -42,8 +42,7 @@ export class LoginComponent {
         sessionStorage.setItem('username', this.logi.userName);
         // alert("logged in");
         this.getudata();
-        // this.router.navigate(['/home'])
-        this.router.navigate(['/profile'])
+        this.router.navigate(['/home'])
       }
       else{
         alert("UserName Does not exist");
@@ -69,8 +68,6 @@ export class LoginComponent {
     sessionStorage.setItem('proff',this.userData.userProf );
     this.i = this.userData.userAge.toString();
     sessionStorage.setItem('age',this.i );
-    // console.log("in udata");
-    // console.log(sessionStorage.getItem('userid'));
     });
   }
 
@@ -95,24 +92,4 @@ export class LoginComponent {
     else
     return vs;
   }
-
-  // passwordValidator(control: FormControl): { [key: string]: boolean } | null {
-  //   const password = control.value;
-  //   const hasUppercase = /[A-Z]/.test(password);
-  //   const hasLowercase = /[a-z]/.test(password);
-  //   const hasDigit = /\d/.test(password);
-  //   const minLength = 8;
-
-  //   if (!hasUppercase || !hasLowercase || !hasDigit || password.length < minLength) {
-  //     return { 'invalidPassword': true };
-  //   }
-
-  //   return null;
-  // }
-  // myForm = new FormGroup({
-  //   password: new FormControl('', [Validators.required, this.passwordValidator])
-  // });
-
-  // Usage in a form group
-
 }

@@ -9,6 +9,7 @@ import { blogd } from '../models/create-blog';
 export class BlogService {
 
   private blogURL = "http://localhost:8883/Blogapi";
+  // http://localhost:8883/Blogapi/getblogbyid/1
   constructor(private httpClient: HttpClient) { }
 
   getId()
@@ -28,4 +29,10 @@ export class BlogService {
   {
     return this.httpClient.post<boolean>(`${this.blogURL}/addblog`,bd);
   }
+
+  getBlog(id:number):Observable<object>
+  {
+    return this.httpClient.get<object>(`${this.blogURL}/getblogbyid/${id}`);
+  }
+
 }

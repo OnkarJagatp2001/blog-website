@@ -7,20 +7,28 @@
   font-size: 150%;
 }
 
-::ng-deep .angular-editor-textarea{
-  resize: none;
-}
 
 :host /deep/ angular-editor#edi .angular-editor-textarea{
   resize: none;
-  }
+}
 
 :host /deep/ angular-editor#edi .angular-editor-toolbar{
   border: 1px solid black;
   border-radius: 3px;
-  }
+}
 
-  .subbutton{
+:host /deep/ angular-editor#edi .angular-editor-textarea{
+width: 100%;
+}
+
+:host /deep/ angular-editor#edi .angular-editor-toolbar{
+  width: 100%;
+  }
+                   
+                 
+
+
+.subbutton{
     text-align: -webkit-center;
 
   }

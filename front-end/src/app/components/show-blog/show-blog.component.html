@@ -1,0 +1,20 @@
+<div class="main-conatiner">
+  <div class="container1">
+    <div class="data-title">
+        <h1>
+            {{blogtitle}}
+        </h1>
+    </div>
+    <hr>
+    <div class="edit">
+        <angular-editor
+        id="edi"
+        class="angular-editor-input"
+        [(ngModel)]="blogtxt"
+        [config]="config"
+        (imageUpload)="uploadImage($event)"
+      >
+      </angular-editor>
+    </div>
+  </div>
+</div>

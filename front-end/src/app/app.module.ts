@@ -9,6 +9,9 @@ import { FormsModule } from '@angular/forms';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { CreateBlogComponent } from './components/create-blog/create-blog.component';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import { ShowBlogComponent } from './components/show-blog/show-blog.component';
 
 @NgModule({
   declarations: [
@@ -17,10 +20,13 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     LoginComponent,
     ProfileComponent,
     HomePageComponent,
-    SidebarComponent
+    CreateBlogComponent,
+    SidebarComponent,
+    ShowBlogComponent
   ],
   imports: [
     BrowserModule,
+    AngularEditorModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule
