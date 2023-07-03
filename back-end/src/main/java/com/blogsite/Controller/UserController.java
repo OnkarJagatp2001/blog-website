@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.blogsite.Repository.UserRepository;
 import com.blogsite.model.User;
+import com.blogsite.model.UserName;
 import com.blogsite.model.UserSession;
 import com.blogsite.service.UserService;
 
@@ -109,10 +110,10 @@ public class UserController {
 }
 	
 	@GetMapping("/sp/{userId}")
-	public String gt(@PathVariable int userId) {		
+	public UserName gt(@PathVariable int userId) {		
 		User users = userRepository.findById(userId).orElseThrow(null);
-		
-		return users.getUserName();
+		UserName u=new UserName(users.getUserName());
+		return u; 
 		
 	}
 	

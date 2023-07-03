@@ -9,6 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { CommentsComponent } from './components/comments/comments.component';
+import { CommentServiceService } from './_services/comment-service.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     LoginComponent,
     ProfileComponent,
     HomePageComponent,
-    SidebarComponent
+    SidebarComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,
