@@ -109,12 +109,18 @@ public class UserController {
 		return !getuname(user.getUserName());
 }
 	
-	@GetMapping("/sp/{userId}")
-	public UserName gt(@PathVariable int userId) {		
+//	@GetMapping("/sp/{userId}")
+//	public UserName gt(@PathVariable int userId) {		
+//		User users = userRepository.findById(userId).orElseThrow(null);
+//		UserName u=new UserName(users.getUserName());
+//		return u; 
+//		
+//	}
+	@GetMapping("/users/name/{userId}")
+	public User name(@PathVariable int userId)
+	{
 		User users = userRepository.findById(userId).orElseThrow(null);
-		UserName u=new UserName(users.getUserName());
-		return u; 
-		
+		return users;	
 	}
 	
 	@GetMapping("/users/{userName}")

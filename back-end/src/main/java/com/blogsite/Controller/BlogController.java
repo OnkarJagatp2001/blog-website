@@ -105,13 +105,14 @@ public class BlogController {
 
 	}
 	@GetMapping("/views/{blog_id}")
-	public void viewsUpdate(@PathVariable int blog_id)
+	public boolean viewsUpdate(@PathVariable int blog_id)
 	{
+		System.out.println(blog_id);
 		String query="update blog set views=views+1 where blog_id=:blog_id";
 		Map<String, Object>params=new HashMap<>();
 		params.put("blog_id", blog_id);
 		namedParameterJdbcTemplate.update(query, params);
-
+		return true;
 	}
 	@GetMapping("/like/{blog_id}")
 	public void likesUpdate(@PathVariable int blog_id)
@@ -121,6 +122,16 @@ public class BlogController {
 		params.put("blog_id", blog_id);
 		namedParameterJdbcTemplate.update(query, params);
 
+	}
+
+	@GetMapping("/liked/{blog_id}")
+	public boolean likesdec(@PathVariable int blog_id)
+	{
+		String query="update blog set likes=likes-1 where blog_id=:blog_id";
+		Map<String, Object>params=new HashMap<>();
+		params.put("blog_id", blog_id);
+		namedParameterJdbcTemplate.update(query, params);
+		return true;
 	}
 	
 	

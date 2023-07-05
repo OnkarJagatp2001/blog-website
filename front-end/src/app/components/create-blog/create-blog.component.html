@@ -1,12 +1,6 @@
-<div
-  class="container1"
-  style="
-    border: 1px solid black;
-    margin-top: 3%;
-    margin-bottom: 10%;
-    padding-top: 3%;
-  ">
-  <div class="input-group input-group-lg" style="width: 60%;">
+<div class="container1">
+<div class="create">
+  <div class="input-group input-group-lg">
     <span class="input-group-text" id="inputGroup-sizing-lg">Blog Title</span>
     <input
       type="text"
@@ -26,14 +20,15 @@
       (imageUpload)="uploadImage($event)"
     >
     </angular-editor>
-    <br>
+    <br />
   </div>
-<div class="tagsin" style="margin-left: 17%;">
+  <div class="tagsin">
     <label for="">Tags : </label>
-    <input style="margin-left: 2%;" type="text" value="Add Tags" [(ngModel)]="tag" required>
-</div>
-  <br>
-<div class="subbutton">
-    <button style="border-radius: 6px; height: 5%; width: 8%;" (click)="submitblog()">Submit</button> 
+    <input type="text" value="Add Tags" [(ngModel)]="tag" required />
+  </div>
+  <br />
+  <div class="subbutton">
+    <button (click)="submitblog()">Submit</button>
+  </div>
 </div>
 </div>

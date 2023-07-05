@@ -29,7 +29,7 @@ export class CreateBlogComponent {
     defaultFontName: 'Italic',
     defaultFontSize: '5',
     sanitize: false,
-    width: '90%',
+    width: '100%',
   };
 
   config1: AngularEditorConfig = {

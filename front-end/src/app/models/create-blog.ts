@@ -6,4 +6,7 @@ export class blogd {
     views: number=0;
     likes: number=0;
   }
-  
+
+  export class userN{
+    name!: string;
+  }
