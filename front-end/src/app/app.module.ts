@@ -14,6 +14,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 import { ShowBlogComponent } from './components/show-blog/show-blog.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { CommentServiceService } from './_services/comment-service.service';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { CommentServiceService } from './_services/comment-service.service';
     AngularEditorModule,
     AppRoutingModule,
     HttpClientModule,
+    FontAwesomeModule,
     FormsModule
   ],
   providers: [],

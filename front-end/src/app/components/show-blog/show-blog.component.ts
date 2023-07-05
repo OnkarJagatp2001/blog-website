@@ -4,6 +4,7 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { delay } from 'rxjs';
 import { blogd, userN } from 'src/app/models/create-blog';
 import { BlogService } from 'src/app/_services/blog.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-show-blog',
@@ -11,29 +12,33 @@ import { BlogService } from 'src/app/_services/blog.service';
   styleUrls: ['./show-blog.component.css'],
 })
 export class ShowBlogComponent implements OnInit {
-  constructor(private blogService: BlogService) {}
+  constructor(private blogService: BlogService, private activatedRoute:ActivatedRoute) {}
 
   blogtitle = '';
   blogtxt = `lorem`;
   name = '';
   f=0;
   numlike = 0;
-  id: number = 13;
+  // id =0;
+  nid = 0;
   bdata: blogd = new blogd();
 
   ngOnInit(): void {
-    this.showblog();
+     const id = this.activatedRoute.snapshot.paramMap.get('blogid');
+    
+    this.showblog(id);
   }
 
-  startDelay(): void {
+  startDelay(id:any): void {
     setTimeout(() => {
-      this.viewed();
+      this.viewed(id);
     }, 10000); // Delay of 10 seconds (10000 milliseconds)
   }
 
-  viewed() {
+  viewed(id : any) {
+    this.nid = id;
     delay(5000);
-    this.blogService.viewUpdate(this.id).subscribe((data) => {
+    this.blogService.viewUpdate(id).subscribe((data) => {
       console.log(data);
     });
   }
@@ -41,17 +46,17 @@ export class ShowBlogComponent implements OnInit {
   likein() {
     if(this.f==1) {this.f=0;
     this.numlike--;
-  this.blogService.liked(this.id).subscribe((data)=>{console.log(data);
+  this.blogService.liked(this.nid).subscribe((data)=>{console.log(data);
   })}
     else {this.f=1;
     this.numlike++;
-    this.blogService.likein(this.id).subscribe((data)=>{console.log(data);
+    this.blogService.likein(this.nid).subscribe((data)=>{console.log(data);
     })}
   }
 
   x: any = undefined;
-  showblog() {
-    this.blogService.getBlog(this.id).subscribe((data) => {
+  showblog(id:any) {
+    this.blogService.getBlog(id).subscribe((data) => {
       console.log(data);
       this.x = data;
       this.bdata = this.x;
@@ -59,12 +64,12 @@ export class ShowBlogComponent implements OnInit {
       this.blogtxt = this.bdata.blog_text;
       this.blogtitle = this.bdata.blog_title;
       this.numlike = this.bdata.likes;
-      this.UserName();
+      this.UserName(id);
     });
   }
   y: any = undefined;
   u: userN = new userN();
-  UserName() {
+  UserName(id:any) {
     // console.log(this.bdata.user_id);
 
     this.blogService.getName(this.bdata.user_id).subscribe((data) => {
@@ -72,7 +77,7 @@ export class ShowBlogComponent implements OnInit {
       this.y = data;
       this.u = this.y;
       this.name = this.u.name;
-      this.startDelay();
+      this.startDelay(id);
     });
   }
 

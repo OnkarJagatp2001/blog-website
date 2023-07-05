@@ -6,15 +6,18 @@ import { ProfileComponent } from './profile/profile.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { CreateBlogComponent } from './components/create-blog/create-blog.component';
 import { ShowBlogComponent } from './components/show-blog/show-blog.component';
+import { CommentsComponent } from './components/comments/comments.component';
+import { authGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path:'profile', component: ProfileComponent},
+  {path:'profile',canActivate:[authGuard], component: ProfileComponent},
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path:'home',component:HomePageComponent},
-  {path:'create-blog',component:CreateBlogComponent},
+  {path:'create-blog', canActivate:[authGuard],component:CreateBlogComponent},
   {path:'show-blog',component:ShowBlogComponent},
+  {path:'show-blog/blog/:blogid',component:ShowBlogComponent},
   {path:'comments',component:CommentsComponent}
 ];
 @NgModule({

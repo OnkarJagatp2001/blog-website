@@ -1,18 +1,20 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { UsersService } from 'src/app/_services/users.service';
 import { login, Users } from 'src/app/models/users';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
   @ViewChild('f') form!: NgForm;
-
   logi: login = new login();
+
+  constructor(private usersService: UsersService,private router: Router) {}
 
   // form = new FormGroup({
   //   password: new FormControl('', [Validators.required, this.passwordValidator])
@@ -32,7 +34,16 @@ export class LoginComponent {
     navigator
     }
   }
-  constructor(private usersService: UsersService,private router: Router) {}
+
+  ngOnInit(): void {
+    sessionStorage.removeItem('userid');
+    sessionStorage.removeItem('name');
+    sessionStorage.removeItem('email' );
+    sessionStorage.removeItem('gender');
+    sessionStorage.removeItem('proff');
+    sessionStorage.removeItem('username');
+    sessionStorage.removeItem('age');
+  }
   isLoggedIn:boolean=false;
   x:any=undefined;
   checklogin() {
@@ -70,13 +81,6 @@ export class LoginComponent {
     sessionStorage.setItem('age',this.i );
     });
   }
-
-//Check is user logged in or not
-  // isUserLoggedIn() {
-  //   console.log(sessionStorage.getItem('username'));
-  //   sessionStorage.getItem('userid');
-  
-  // }
 
     // to get id as number
   getId()
