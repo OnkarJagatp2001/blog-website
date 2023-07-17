@@ -53,6 +53,7 @@ export class LoginComponent implements OnInit{
         sessionStorage.setItem('username', this.logi.userName);
         // alert("logged in");
         this.getudata();
+        // this.router.navigate(['/show-blog'])
         this.router.navigate(['/home'])
       }
       else{
