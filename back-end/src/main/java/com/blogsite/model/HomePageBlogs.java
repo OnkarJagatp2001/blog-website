@@ -1,28 +1,32 @@
 package com.blogsite.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
-@Entity
-@Table(name="Blog")
-public class Blog {
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int blog_id;   //primary key
+public class HomePageBlogs {
 	private int user_id;
-	@Column(length = 1000)
 	private String blog_title;
-	@Column(length = 10000000)
 	private String blog_text;
 	private String tags;
 	private int views;
 	private int likes;
 	private int bid;
+	private String name;
+	private String userName;
 	
+	public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    // Getter and Setter for 'userName'
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 	public int getUser_id() {
 		return user_id;
 	}
@@ -65,22 +69,9 @@ public class Blog {
 	public void setBid(int bid) {
 		this.bid = bid;
 	}
-	public Blog( int user_id, String blog_title, String blog_text, String tags, int views, int likes) {
-		super();
-		this.user_id = user_id;
-		this.blog_title = blog_title;
-		this.blog_text = blog_text;
-		this.tags = tags;
-		this.views = views;
-		this.likes = likes;
-	}
-	public Blog() {
-		super();
-	}
-	public Blog(int user_id2, String blog_title2, String blog_text2, String tags2, int blog_id2, int views2,
-			int likes2) {
-		// TODO Auto-generated constructor stub
-		super();
+	
+	public HomePageBlogs(int user_id2, String blog_title2, String blog_text2, String tags2, int blog_id2, int views2,
+			int likes2, String name, String userName) {
 		this.user_id = user_id2;
 		this.blog_title = blog_title2;
 		this.blog_text = blog_text2;
@@ -88,8 +79,9 @@ public class Blog {
 		this.bid = blog_id2;
 		this.views = views2;
 		this.likes = likes2;
+		this.name = name;
+		this.userName = userName;
 	}
-
+	
 	
 }
-

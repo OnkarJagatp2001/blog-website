@@ -29,8 +29,8 @@
           <div class="blog-display-box">
             <!-- blog title display -->
             <!-- <div class="blog-body" (click)="goToShowBlog(item.blog_id)"> -->
-            <div class="blog-body" routerLink="/login">
-              <b class="blog-title">{{ item.blog_title}}</b>
+            <div class="blog-body" routerLink="/show-blog/blog/{{item.bid}}">
+              <b class="blog-title">{{item.blog_title}}</b>
               <!-- blog views display  -->
               <span class="blog-views">
                 <i class="bi bi-eye" style="padding:2px; color: #999; font-size: 15px;">

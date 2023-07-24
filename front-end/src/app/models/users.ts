@@ -13,7 +13,7 @@ export class login{
     userPass!: string;
 }
 export class blog{
-    blog_id!:number;
+    bid!:number;
 	blog_title!:string;
 	blog_text!:string;
 	tags!:string;
