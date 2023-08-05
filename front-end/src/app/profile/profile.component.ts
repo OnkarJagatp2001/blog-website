@@ -16,7 +16,7 @@ export class ProfileComponent implements OnInit{
   useridInt = parseInt(this.uidString || '')
 
   arr: blog[] = [];
-    
+
   constructor(private usersService: UsersService,private router: Router) {
   }
   ngOnInit(){
@@ -42,5 +42,11 @@ export class ProfileComponent implements OnInit{
   clearUserData(){
     sessionStorage.clear();
   }
+
+  //  goToShowBlog(a: number){
+  //   console.log("blog id is : "+a);
+    
+  //   this.router.navigate(['/show-blog/blog',a]);
+  // }
 
 }
