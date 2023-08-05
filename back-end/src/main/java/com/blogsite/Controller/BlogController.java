@@ -62,6 +62,7 @@ public class BlogController {
 	@GetMapping("/getblog/{user_id}")
 	public List<Blog> getblog(@PathVariable int user_id)
 	{
+		System.out.println("in get blog");
 		List<Blog>blogs=new ArrayList<>();
 		String query="select * from blog where user_id=:user_id";
 		Map<String, Object>params=new HashMap<>();
