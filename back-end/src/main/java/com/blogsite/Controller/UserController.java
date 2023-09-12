@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.blogsite.Repository.UserRepository;
 import com.blogsite.model.User;
-import com.blogsite.model.UserName;
 import com.blogsite.model.UserSession;
 import com.blogsite.service.UserService;
 
@@ -62,27 +61,6 @@ public class UserController {
 	@PostMapping("/login")
 	public boolean login(@RequestBody User user)
 	{
-//		String query = "select count(*) from users where user_name = :uname && user_pass=:pass";	
-//		Map<String, Object>params=new HashMap<>();
-//		params.put("user_name", user.getUserName());
-//		params.put("user_pass",user.getUserPass());
-////		System.out.println(user.getUserName());
-////		System.out.println(user.getUserPass());
-//		List<Map<String, Object>> resultList = namedParameterJdbcTemplate.queryForList(query, params);
-//        
-//		for (Map<String, Object> result : resultList) {
-//         
-//            String u = (String) result.get("user_name");
-//            String p = (String) result.get("user_pass");
-//            System.out.println(u);
-//            System.out.println(p);
-//    
-//        }
-//		if(resultList.size()==1)
-//			return true;
-//		else 
-//			return false;
-//		System.out.println(user.getUserName());
 		String query = "select user_pass from users where user_name = :uname ";
 		Map<String, Object>params=new HashMap<>();
 		params.put("uname", user.getUserName());
@@ -107,7 +85,7 @@ public class UserController {
 	@PostMapping("/users/check")
 	public boolean checkNewUser(@RequestBody User user ) {
 		return !getuname(user.getUserName());
-}
+	}
 	
 //	@GetMapping("/sp/{userId}")
 //	public UserName gt(@PathVariable int userId) {		

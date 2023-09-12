@@ -1,0 +1,24 @@
+<div class="alert" *ngIf="flag==false"><h1>NO DATA</h1></div>
+<div class="blog-com" *ngIf="flag==true">
+    <div class="inst-blog" *ngFor="let item of blogs">
+        <div class="blog-display-box">
+            <div class="blog-body" routerLink="/show-blog/blog/{{item.bid}}">
+              <b class="blog-title">{{item.blog_title}}</b>
+              <span class="blog-views">
+                <i class="bi bi-eye" style="padding:2px; color: #999; font-size: 15px;">
+                </i>
+                {{item.views}}
+              </span>
+              <span class="blog-likes">
+                <i class="bi bi-hand-thumbs-up" style="padding:2px; color: #999; font-size: 15px;">
+                </i>
+                {{item.likes}}
+              </span>
+              <p [innerHTML]="stripHtmlTags(item.blog_text) | slice:0:600"></p>
+            </div>
+            <div class="blog-details">
+              <span class="blog-tags">{{item.tags}}</span>
+            </div>
+          </div>
+    </div>
+</div>

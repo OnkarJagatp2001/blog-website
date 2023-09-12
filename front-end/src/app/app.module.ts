@@ -15,6 +15,8 @@ import { ShowBlogComponent } from './components/show-blog/show-blog.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { CommentServiceService } from './_services/comment-service.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BlogsListComponent } from './components/blogs-list/blogs-list.component';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CreateBlogComponent,
     SidebarComponent,
     ShowBlogComponent,
-    CommentsComponent
+    CommentsComponent,
+    BlogsListComponent
   ],
   imports: [
     BrowserModule,

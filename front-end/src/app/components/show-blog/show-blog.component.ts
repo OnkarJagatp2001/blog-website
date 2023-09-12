@@ -32,7 +32,7 @@ export class ShowBlogComponent implements OnInit {
   startDelay(id:any): void {
     setTimeout(() => {
       this.viewed(id);
-    }, 10000); // Delay of 10 seconds (10000 milliseconds)
+    }, 5000); // Delay of 5 seconds (5000 milliseconds)
   }
 
   viewed(id : any) {

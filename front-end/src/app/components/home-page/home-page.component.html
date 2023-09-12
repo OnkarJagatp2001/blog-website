@@ -1,2 +1,17 @@
-<a routerLink="/profile"><p id="signuplink">profile</p></a><br>
-<a routerLink="/create-blog"><p id="signuplink">write blog</p></a>
+<div class="connect">
+  <a routerLink="/profile"><p id="signuplink">profile</p></a><br>
+  <a routerLink="/create-blog"><p id="signuplink">write blog</p></a>
+</div>
+<div class="container">
+    <app-blogs-list [page]="p"></app-blogs-list>
+    <button (click) = "nextPage()">next</button>
+    <div class="tags">
+        <app-sidebar></app-sidebar>
+    </div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item" (click)="prevPage()"><a class="page-link">Previous</a></li>
+          <li class="page-item" (click)="nextPage()"><a class="page-link">Next</a></li>
+        </ul>
+      </nav>
+</div>

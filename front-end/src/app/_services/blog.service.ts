@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { delay, Observable } from 'rxjs';
 import { blogd } from '../models/create-blog';
+import { blog } from '../models/users';
 
 @Injectable({
   providedIn: 'root'
@@ -49,5 +50,19 @@ export class BlogService {
   getName(id:number)
   { 
     return this.httpClient.get(`${this.userUrl}/${id}`);
+  }
+
+  static page : number = 1;
+  static total : number=1;
+  getPage() : number
+  {
+    return BlogService.page;
+  }
+  setPage(n : number) : void{
+    if(n>0 && BlogService.total!=0) 
+        BlogService.page = n;
+  }
+  nextPage(pno : number) : Observable<blog[]>{
+    return this.httpClient.get<blog[]>(`${this.blogURL}/byid/${pno}`);
   }
 }
