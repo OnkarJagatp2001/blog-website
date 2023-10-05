@@ -44,7 +44,7 @@
                 {{item.likes}}
               </span>
               <!-- blog text display  -->
-              <p [innerHTML]="item.blog_text | slice:0:250"></p>
+              <p [innerHTML]="stripHtmlTags(item.blog_text) | slice:0:250"></p>
             </div>
             <div class="blog-details">
               <!-- blog tags display  -->

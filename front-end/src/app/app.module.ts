@@ -16,6 +16,8 @@ import { CommentsComponent } from './components/comments/comments.component';
 import { CommentServiceService } from './_services/comment-service.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BlogsListComponent } from './components/blogs-list/blogs-list.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { AboutPageComponent } from './components/about-page/about-page.component';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { BlogsListComponent } from './components/blogs-list/blogs-list.component
     SidebarComponent,
     ShowBlogComponent,
     CommentsComponent,
-    BlogsListComponent
+    BlogsListComponent,
+    ContactUsComponent,
+    AboutPageComponent
   ],
   imports: [
     BrowserModule,

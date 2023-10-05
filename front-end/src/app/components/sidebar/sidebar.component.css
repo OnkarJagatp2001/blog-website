@@ -1,11 +1,9 @@
 .tagsc {
   display: flex;
   flex-wrap: wrap; 
-  padding-top: 2%;
-  padding-bottom: 2%;
+  padding: 2% 2% 2% 2%;
   justify-content: flex-start;
-  border: 1px dotted black;
-  width: 25%;
+  /* border: 1px dotted black; */
   margin: auto;
   border-radius: 15px; 
   
@@ -19,7 +17,6 @@
   margin-left: 3%;
 }
 .tag {
-  
   background-color: #f1f1f1;
   color: #333;
   padding: 5px 10px;

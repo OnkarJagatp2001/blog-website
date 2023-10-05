@@ -52,7 +52,6 @@ export class CreateBlogComponent {
 
     if (this.blog_title == '') alert('Title Empty');
     else if (this.blog_text == ``) alert('Write your blog');
-    // else if(this)
     else {
       this.bd.blog_text = this.blog_text;
       this.bd.blog_title = this.blog_title;

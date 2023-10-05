@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit{
     this.logi.userName = this.form.value.username;
     this.logi.userPass = this.form.value.password;
 
-    console.log(this.logi.userName);
+    // console.log(this.logi.userName);
     this.checklogin();
     navigator
     }

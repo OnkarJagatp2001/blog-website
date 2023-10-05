@@ -11,23 +11,32 @@ import { blog } from 'src/app/models/users';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent {
+
+@Output() childEvent = new EventEmitter();
+
   constructor(private usersService: UsersService,private router: Router){}
-tags:string[]=["Java","Python","AI","ML","Technology","Data Science","SQL","Java Strings","JPA"];
+tags:string[]=["Java","Mythology","AI","Entertainment","Technology","Chess","SQL","JPA"];
 
 tagsarr:blog[]=[];
 x:blog[]=[];
-tagClicked(tag:string)
-{this.tagsarr=[]
-  this.usersService.getByTags(tag).subscribe((data:blog[])=>{
-    this.x=data;
-    for(let i of this.x)
-    {
-      this.tagsarr.push(i);
-    }
-    
-  });
-  console.log(this.tagsarr);
-  
+
+
+tagClicked(tag:string){
+  this.childEvent.emit(tag);
 }
+
+
+// tagClicked(tag:string)
+// {this.tagsarr=[]
+//   this.usersService.getByTags(tag).subscribe((data:blog[])=>{
+//     this.x=data;
+//     for(let i of this.x)
+//     {
+//       this.tagsarr.push(i);
+//     }
+//   });
+//   console.log(this.tagsarr);
+  
+// }
 
 }

@@ -43,6 +43,9 @@ export class ProfileComponent implements OnInit{
     sessionStorage.clear();
   }
 
+  stripHtmlTags(html: string): string {
+    return html.replace(/<[^>]*>/g, '');
+  }
   //  goToShowBlog(a: number){
   //   console.log("blog id is : "+a);
     

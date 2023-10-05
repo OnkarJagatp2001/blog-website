@@ -9,6 +9,6 @@ import com.blogsite.model.User;
 
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Integer>{
+public interface UserRepository extends JpaRepository<User, Long>{
 	
 }

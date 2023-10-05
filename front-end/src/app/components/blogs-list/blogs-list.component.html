@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
 <div class="alert" *ngIf="flag==false"><h1>NO DATA</h1></div>
 <div class="blog-com" *ngIf="flag==true">
     <div class="inst-blog" *ngFor="let item of blogs">
@@ -14,7 +16,7 @@
                 </i>
                 {{item.likes}}
               </span>
-              <p [innerHTML]="stripHtmlTags(item.blog_text) | slice:0:600"></p>
+              <p [innerHTML]="stripHtmlTags(item.blog_text) | slice:0:250"></p>
             </div>
             <div class="blog-details">
               <span class="blog-tags">{{item.tags}}</span>

@@ -16,9 +16,9 @@ export class RegisterComponent {
 
   userData: Users = new Users();
 
-  constructor(private usersService: UsersService,private router: Router) {}
+  constructor(private usersService: UsersService, private router: Router) { }
 
-  x:any=undefined;
+  x: any = undefined;
   saveUsers() {
     this.usersService.createUser(this.userData).subscribe(
       (data) => {
@@ -31,25 +31,24 @@ export class RegisterComponent {
   ck: number = 0;
 
   check() {
-    this.usersService.checkuname(this.userData).subscribe((data: boolean) => { this.x=data;
+    this.usersService.checkuname(this.userData).subscribe((data: boolean) => {
+      this.x = data;
       // console.log(this.x);
-      if(!this.x)
-      alert("UserName is Taken");
-      else
-    {
-      this.saveUsers();
-      this.s=1;
-      this.loginroute();
-    }
-      
+      if (!this.x)
+        alert("UserName is Taken");
+      else {
+        this.saveUsers();
+        this.s = 1;
+        this.loginroute();
+      }
+
     });
   }
 
-  loginroute()
-  {
+  loginroute() {
     this.router.navigate(['login']);
   }
-  s:number = 0;
+  s: number = 0;
 
 
   onSubmit(form: NgForm) {
@@ -64,9 +63,8 @@ export class RegisterComponent {
       this.userData.userProf = this.form.value.userProf;
       this.userData.userAge = this.form.value.userAge;
 
-
       this.check();
-      this.s=0;
+      this.s = 0;
     }
   }
 }
